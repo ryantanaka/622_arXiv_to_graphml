@@ -4,7 +4,7 @@ import graphelements
 author_set = set()
 edges_dict = dict()
 
-with open('./../arXiv.txt', 'r') as infile:
+with open('./../small_arXiv.txt', 'r') as infile:
 	for row in infile:
 		data = row.replace('\n', '').split('|')
 		coauthors = data[1].split(',')
@@ -20,7 +20,7 @@ with open('./../arXiv.txt', 'r') as infile:
 			else:
 				edges_dict[key].incrementWeight()
 
-with open('./../new_netscience.graphml', 'w') as outfile:
+with open('./../small_new_netscience.graphml', 'w') as outfile:
 	outfile.write(graphelements.HEADER_XML)
 	
 	for author in author_set:
