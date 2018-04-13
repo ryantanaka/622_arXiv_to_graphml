@@ -1,22 +1,16 @@
 class Node:
-	next_id = 0
 	NODE_XML = """<node id="{0}">
-			 <data key="label">{1}</data>
+			 <data key="label">{0}</data>
 			 </node>\n"""
 	
 	def __init__(self, name):
 		self._name = name
-		self._id = Node.next_id 
-		Node.next_id += 1
 
 	def getName(self):
 		return self._name
 
-	def getId(self):
-		return self._id
-
 	def __str__(self):
-		return Node.NODE_XML.format(self._id, self._name).replace('\t', '')
+		return Node.NODE_XML.format(self._name).replace('\t', '')
 
 class Edge:
 	EDGE_XML = """<edge source="{0}" target="{1}">
