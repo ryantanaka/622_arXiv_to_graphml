@@ -8,7 +8,8 @@ with open('./../cleaned_arXiv.txt', 'r') as infile:
 	for row in infile:
 		data = row.replace('\n', '').split('|')
 		coauthors = data[1].split(',')
-		divided_weight = 1 / len(coauthors)
+		degree = len(coauthors) - 1
+		divided_weight = (1 / degree) if degree != 0 else 0
 
 		for author in coauthors:
 			author_set.add(author)
