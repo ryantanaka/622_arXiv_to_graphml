@@ -17,13 +17,13 @@ class Edge:
 				<data key="weight">{2}</data>
 				</edge>\n"""
 	
-	def __init__(self, source, target):
+	def __init__(self, source, target, start_weight):
 		self._source = source
 		self._target = target
-		self._weight = 1	
+		self._weight = start_weight	
 
-	def incrementWeight(self):
-		self._weight += 1
+	def incrementWeight(self, amount):
+		self._weight += amount 
 
 	def __str__(self):
 		return Edge.EDGE_XML.format(self._source, self._target, self._weight).replace('\t', '')
